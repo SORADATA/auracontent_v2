@@ -1,0 +1,74 @@
+channel_name: "mystery"
+description: "Vidéos documentaires courtes sur des mystères historiques réels."
+
+# Configuration du LLM / Brain
+brain:
+  scene_count: 11
+  voice_direction: "French premium narrator, calm, elegant, intriguing, controlled pacing"
+
+# Configuration Vidéo (Composer)
+video_composer:
+  video_width: 1080
+  video_height: 1920
+  fps: 30
+  transitions: ["fade", "fade", "fade", "fade"]
+
+  # Audio & Mix
+  music_exclude_patterns: ["finance", "kids"]
+  voice_gain: 1.08
+  music_gain: 0.085
+  music_fade_duration: 2.5
+  transition_duration: 0.38
+
+  # SFX (Effets sonores)
+  sfx_role_map:
+    reveal: "reveal.mp3"
+    escalation: "impact.mp3"
+    hook: "impact.mp3"
+  sfx_mood_map:
+    revelatory: "reveal.mp3"
+    tense: "impact.mp3"
+    ominous: "reveal.mp3"
+  sfx_gain: 0.55
+  sfx_fade_out: 0.6
+
+  # Branding & Filigrane
+  watermark_filename: "minute_mystere_watermark.png"
+  watermark_width: 205
+  watermark_opacity: 0.72
+  watermark_x: 42
+  watermark_y: 48
+
+  # Sous-titres & Textes
+  subtitle_style: "FontName=DejaVu Sans,FontSize=24,Bold=1,PrimaryColour=&H00FFFFFF,SecondaryColour=&H00FFFFFF,OutlineColour=&H00000000,BackColour=&H78000000,BorderStyle=3,Outline=1.5,Shadow=0,Alignment=2,MarginL=70,MarginR=70,MarginV=125"
+  font_path: "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+  source_credit_y: "h-520"
+  source_credit_size: 18
+  source_credit_alpha: 0.52
+  
+  source_credit_labels:
+    wiki: "Source : Wikimedia Commons"
+    wikimedia: "Source : Wikimedia Commons"
+    openverse: "Source : Openverse"
+    video: "Illustration : Pexels / Pixabay"
+    pexels: "Illustration : Pexels / Pixabay"
+    pixabay: "Illustration : Pexels / Pixabay"
+    videvo: "Illustration : Pexels / Pixabay"
+    ai: "Illustration générée par IA"
+
+
+visuals:
+  # Modificateurs de génération d'images IA
+  ai_composition: "wide-angle documentary shot, strictly centered subject, eye-level perspective"
+  ai_lighting: "dramatic natural lighting, moody shadows, cinematic ambient light"
+  ai_texture: "visible material details, realistic weathered surfaces, natural imperfections"
+  ai_palette: "muted desaturated tones, dark cinematic color grading"
+  ai_mood: "tense, mysterious, documentary atmosphere, photojournalistic feel"
+  ai_suffix: "photorealistic, ultra-realistic, real-world photography, 8k detail."
+  
+  # Requête de fallback sur les banques de vidéos gratuites (Pexels/Pixabay)
+  video_fallback_query: "mysterious historical documentary atmosphere"
+  ai_base_style: "cinematic realistic documentary still, photorealistic, atmospheric depth, subtle film grain, dramatic but natural lighting, rich natural textures, high visual clarity, strictly centered subject, extreme wide shot, vertical 9:16 composition, subject kept inside the center safe zone, clean space near the top and bottom for captions"
+  ai_negative_prompt: "text, logo, watermark, subtitles, borders, split screen, multiple frames, deformed hands, extra fingers, duplicate people, cropped head, blurry face, cartoon, anime"
+  ai_primary_model: "flux"
+  ai_fallback_model: "turbo"

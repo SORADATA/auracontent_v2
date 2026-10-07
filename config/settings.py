@@ -5,11 +5,17 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+# ==========================================
+# CHEMINS ABSOLUS DU PROJET
+# ==========================================
 BASE_DIR = Path(__file__).resolve().parent.parent
 DATA_DIR = BASE_DIR / "data"
 OUTPUT_DIR = BASE_DIR / "output"
+ASSETS_DIR = BASE_DIR / "assets"
 
-# Configuration par API / Fournisseur
+# ==========================================
+# CONFIGURATION DES LLMs
+# ==========================================
 GEMINI_CONFIG = {
     "text": "gemini-3.6-flash",
     "voice": "gemini-2.5-flash-preview-tts"
@@ -25,10 +31,10 @@ OPENROUTER_ROUTING = [
     "google/gemma-3-27b-it:free",
 ]
 
-AI_MENTION_PATTERNS = [
-    r"intelligence\s+artificielle", r"\bIA\b", r"\bl'IA\b",
-    r"artificial\s+intelligence", r"\bl'algorithme\b", r"\bchatgpt\b",
-    r"\bgroq\b", r"\bgemini\b", r"genere[e]?\s+par\s+l'?ia",
-]
-ACCENTED_CHARS = "éèêëàâäùûüçîïôœ"
-_TITLE_STOPWORDS = {"de", "du", "des", "la", "le", "les", "d", "l", "et", "en", "au", "aux", "un", "une", "the", "of"}
+# ==========================================
+# CLÉS API & SÉCURITÉ
+# ==========================================
+# Centralisation pour faire crasher l'appli tôt si une clé manque
+GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY")
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")

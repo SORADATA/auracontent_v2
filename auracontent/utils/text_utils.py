@@ -1,7 +1,14 @@
 import re
 import json
 import unicodedata
-from config.settings import ACCENTED_CHARS, AI_MENTION_PATTERNS, _TITLE_STOPWORDS
+
+AI_MENTION_PATTERNS = [
+    r"intelligence\s+artificielle", r"\bIA\b", r"\bl'IA\b",
+    r"artificial\s+intelligence", r"\bl'algorithme\b", r"\bchatgpt\b",
+    r"\bgroq\b", r"\bgemini\b", r"genere[e]?\s+par\s+l'?ia",
+]
+ACCENTED_CHARS = "éèêëàâäùûüçîïôœ"
+_TITLE_STOPWORDS = {"de", "du", "des", "la", "le", "les", "d", "l", "et", "en", "au", "aux", "un", "une", "the", "of"}
 
 
 def _has_missing_accents(text, min_hits=3):
